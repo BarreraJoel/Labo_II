@@ -36,12 +36,14 @@
 			btnModificar = new Button();
 			btnTask = new Button();
 			dataGridView1 = new DataGridView();
+			lstb = new ListBox();
+			btnCancelarTask = new Button();
 			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
 			SuspendLayout();
 			// 
 			// btnObtenerTodos
 			// 
-			btnObtenerTodos.Location = new Point(55, 163);
+			btnObtenerTodos.Location = new Point(55, 109);
 			btnObtenerTodos.Name = "btnObtenerTodos";
 			btnObtenerTodos.Size = new Size(188, 67);
 			btnObtenerTodos.TabIndex = 0;
@@ -61,7 +63,7 @@
 			// 
 			// btnDeserializar
 			// 
-			btnDeserializar.Location = new Point(940, 302);
+			btnDeserializar.Location = new Point(55, 375);
 			btnDeserializar.Name = "btnDeserializar";
 			btnDeserializar.Size = new Size(188, 67);
 			btnDeserializar.TabIndex = 2;
@@ -71,7 +73,7 @@
 			// 
 			// btnAgregar
 			// 
-			btnAgregar.Location = new Point(190, 502);
+			btnAgregar.Location = new Point(933, 30);
 			btnAgregar.Name = "btnAgregar";
 			btnAgregar.Size = new Size(188, 67);
 			btnAgregar.TabIndex = 3;
@@ -81,7 +83,7 @@
 			// 
 			// btnEliminar
 			// 
-			btnEliminar.Location = new Point(797, 502);
+			btnEliminar.Location = new Point(933, 191);
 			btnEliminar.Name = "btnEliminar";
 			btnEliminar.Size = new Size(188, 67);
 			btnEliminar.TabIndex = 4;
@@ -91,7 +93,7 @@
 			// 
 			// btnModificar
 			// 
-			btnModificar.Location = new Point(467, 502);
+			btnModificar.Location = new Point(933, 109);
 			btnModificar.Name = "btnModificar";
 			btnModificar.Size = new Size(188, 67);
 			btnModificar.TabIndex = 5;
@@ -101,12 +103,13 @@
 			// 
 			// btnTask
 			// 
-			btnTask.Location = new Point(940, 163);
+			btnTask.Location = new Point(933, 302);
 			btnTask.Name = "btnTask";
 			btnTask.Size = new Size(188, 67);
 			btnTask.TabIndex = 6;
 			btnTask.Text = "LANZAR TASK";
 			btnTask.UseVisualStyleBackColor = true;
+			btnTask.Click += btnTask_Click;
 			// 
 			// dataGridView1
 			// 
@@ -115,14 +118,35 @@
 			dataGridView1.Name = "dataGridView1";
 			dataGridView1.RowHeadersWidth = 62;
 			dataGridView1.RowTemplate.Height = 33;
-			dataGridView1.Size = new Size(600, 436);
+			dataGridView1.Size = new Size(600, 239);
 			dataGridView1.TabIndex = 7;
+			// 
+			// lstb
+			// 
+			lstb.FormattingEnabled = true;
+			lstb.ItemHeight = 25;
+			lstb.Location = new Point(295, 375);
+			lstb.Name = "lstb";
+			lstb.Size = new Size(600, 179);
+			lstb.TabIndex = 8;
+			// 
+			// btnCancelarTask
+			// 
+			btnCancelarTask.Location = new Point(933, 375);
+			btnCancelarTask.Name = "btnCancelarTask";
+			btnCancelarTask.Size = new Size(188, 67);
+			btnCancelarTask.TabIndex = 9;
+			btnCancelarTask.Text = "CANCELAR TASK";
+			btnCancelarTask.UseVisualStyleBackColor = true;
+			btnCancelarTask.Click += btnCancelarTask_Click;
 			// 
 			// FrmPrincipal
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1208, 666);
+			Controls.Add(btnCancelarTask);
+			Controls.Add(lstb);
 			Controls.Add(dataGridView1);
 			Controls.Add(btnTask);
 			Controls.Add(btnModificar);
@@ -148,5 +172,7 @@
 		private Button btnModificar;
 		private Button btnTask;
 		private DataGridView dataGridView1;
+		private ListBox lstb;
+		private Button btnCancelarTask;
 	}
 }

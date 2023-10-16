@@ -26,3 +26,5 @@ C:\Users\Gabriela\source\repos\Final\Barrera.Joel.2A\FinalLabo2023\obj\Debug\net
 C:\Users\Gabriela\source\repos\Final\Barrera.Joel.2A\FinalLabo2023\obj\Debug\net6.0-windows\FinalLabo2023.genruntimeconfig.cache
 C:\Users\Gabriela\source\repos\Final\Barrera.Joel.2A\FinalLabo2023\obj\Debug\net6.0-windows\ref\FinalLabo2023.dll
 C:\Users\Gabriela\source\repos\Final\Barrera.Joel.2A\FinalLabo2023\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Gabriela\source\repos\Final\Barrera.Joel.2A\FinalLabo2023\obj\Debug\net6.0-windows\FinalLabo2023.FrmEliminar.resources
+C:\Users\Gabriela\source\repos\Final\Barrera.Joel.2A\FinalLabo2023\obj\Debug\net6.0-windows\FinalLabo2023.FrmModificar.resources

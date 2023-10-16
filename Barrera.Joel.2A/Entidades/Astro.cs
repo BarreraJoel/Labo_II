@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-	public abstract class Astro
+	public class Astro
 	{
 		protected int id;
 		protected string nombre;
@@ -43,6 +43,9 @@ namespace Entidades
 			set { this.diametro = value; }
 		}
 
-		protected abstract string InformacionAstro();
+		protected virtual string InformacionAstro()
+		{
+			return "";
+		}
 	}
 }

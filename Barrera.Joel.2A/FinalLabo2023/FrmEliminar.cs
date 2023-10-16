@@ -34,10 +34,10 @@ namespace FinalLabo2023
 
 		protected override void btnAceptar_Click(object sender, EventArgs e)
 		{
-			if(MessageBox.Show("¿Desea eliminar?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if (MessageBox.Show("¿Desea eliminar?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				Planetario p = new Planetario();
-				if(p.Eliminar(this.planeta))
+				if (p.Eliminar(this.planeta))
 				{
 					MessageBox.Show("Planeta eliminado", "Exito!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					this.Close();

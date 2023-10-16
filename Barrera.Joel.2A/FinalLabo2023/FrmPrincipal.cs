@@ -5,11 +5,16 @@ namespace FinalLabo2023
 	public partial class FrmPrincipal : Form
 	{
 		private Planetario planetario;
-
+		private CancellationToken cancellationToken;
+		private CancellationTokenSource cancellationTokenSource;
+		
 		public FrmPrincipal()
 		{
 			InitializeComponent();
 			this.planetario = new Planetario();
+			this.cancellationTokenSource = new CancellationTokenSource();
+			this.cancellationToken = this.cancellationTokenSource.Token;
+			this.Click += this.eventoCancelado;
 		}
 
 		private Planeta? BuscarPlaneta(int id)
@@ -19,7 +24,7 @@ namespace FinalLabo2023
 
 			foreach (Planeta p in pla.ObtenerTodos())
 			{
-				if(p.ID == id)
+				if (p.ID == id)
 				{
 					planeta = p;
 					break;
@@ -32,13 +37,13 @@ namespace FinalLabo2023
 		private void MostrarPlaneta(List<Astro> astros)
 		{
 			List<Planeta> p = new List<Planeta>();
-            foreach (Astro astro in astros)
-            {
-                if(astro is Planeta)
+			foreach (Astro astro in astros)
+			{
+				if (astro is Planeta)
 				{
 					p.Add((Planeta)astro);
 				}
-            }
+			}
 			this.dataGridView1.DataSource = p;
 		}
 
@@ -47,6 +52,7 @@ namespace FinalLabo2023
 
 		}
 
+		//Base de datos
 		private void btnObtenerTodos_Click(object sender, EventArgs e)
 		{
 			Planetario planetario = new Planetario();
@@ -77,7 +83,7 @@ namespace FinalLabo2023
 
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
-			if(this.dataGridView1.SelectedRows.Count == 1)
+			if (this.dataGridView1.SelectedRows.Count == 1)
 			{
 				int id = (int)this.dataGridView1.SelectedRows[0].Cells["ID"].Value;
 				FrmEliminar eliminar = new FrmEliminar(this.BuscarPlaneta(id));
@@ -89,13 +95,13 @@ namespace FinalLabo2023
 			}
 		}
 
+		//Serializacion
 		private void btnSerializar_Click(object sender, EventArgs e)
 		{
 			Serializador ser = new Serializador();
-			List<Astro> lista = this.planetario.ObtenerTodos();
 			List<Astro> astros = new List<Astro>();
 
-			foreach (Astro astro in lista)
+			foreach (Astro astro in this.planetario.ObtenerTodos())
 			{
 				if (astro is Planeta)
 				{
@@ -130,6 +136,39 @@ namespace FinalLabo2023
 			{
 				MessageBox.Show("Fallo la deserializacion", "Error!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+		private void MostrarTarea()
+		{
+			MessageBox.Show("Tarea", "Exito");
+		}
+
+		//Task
+		private bool Metodo() { return true; }
+		private void btnTask_Click(object sender, EventArgs e)
+		{
+			Func<bool> f = new Func<bool>(this.Metodo);
+			Task.Run(() =>
+			{
+				for (int i = 0; i < 5; i++)
+				{
+					Thread.Sleep(3000);
+					if(!this.cancellationToken.IsCancellationRequested)
+					{
+						this.lstb.Items.Add(i);
+					}
+				}
+			});
+		}
+
+		private void btnCancelarTask_Click(object sender, EventArgs e)
+		{
+			this.cancellationTokenSource.Cancel();
+		}
+
+		//Eventos
+		private void eventoCancelado(object sender, EventArgs e)
+		{
+			MessageBox.Show("Evento Click", "Click");
 		}
 	}
 }

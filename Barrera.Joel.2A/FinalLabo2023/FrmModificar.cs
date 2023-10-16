@@ -36,11 +36,11 @@ namespace FinalLabo2023
 
 		protected override void btnAceptar_Click(object sender, EventArgs e)
 		{
-			if(base.VerificarControles())
+			if (base.VerificarControles())
 			{
 				Planetario planetario = new Planetario();
 				Planeta p = base.CrearPlaneta();
-				if(planetario.Modificar(p))
+				if (planetario.Modificar(p))
 				{
 					base.delegadoMostrador(new List<Astro> { p });
 					MessageBox.Show("Planeta modificado", "Exito!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);

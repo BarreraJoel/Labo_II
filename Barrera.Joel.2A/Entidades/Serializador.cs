@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Text.Json.Serialization;
+//using System.Xml.Serialization;
+//using System.Xml;
 using Newtonsoft.Json;
 
 namespace Entidades
@@ -16,6 +17,7 @@ namespace Entidades
 		public Serializador()
 		{
 			this.path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\astros.json";
+			//this.path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\astros.xml";
 		}
 
 		public bool Serializar(List<Astro> lista)
@@ -26,10 +28,21 @@ namespace Entidades
 			{
 				using (StreamWriter sw = new StreamWriter(this.path))
 				{
-					string json = JsonConvert.SerializeObject(lista, Formatting.Indented);
+					JsonSerializerSettings sett = new JsonSerializerSettings
+					{
+						TypeNameHandling = TypeNameHandling.All
+					};
+					string json = JsonConvert.SerializeObject(lista, Formatting.Indented, sett);
 					sw.Write(json);
 					serializado = true;
 				}
+
+				/*using (StreamWriter sw = new StreamWriter(this.path))
+				{
+					XmlSerializer xml = new XmlSerializer(typeof(List<Astro>));
+					xml.Serialize(sw, lista);
+				}
+				serializado = true;*/
 			}
 			catch (Exception)
 			{
@@ -47,9 +60,18 @@ namespace Entidades
 				using (StreamReader sr = new StreamReader(this.path))
 				{
 					string json = sr.ReadToEnd();
-					JsonSerializerSettings set = new JsonSerializerSettings();
-					lista = JsonConvert.DeserializeObject<List<Astro>>(json);
+					JsonSerializerSettings sett = new JsonSerializerSettings
+					{
+						TypeNameHandling = TypeNameHandling.All
+					};
+					lista = JsonConvert.DeserializeObject<List<Astro>>(json, sett);
 				}
+
+				/*using (StreamReader sr = new StreamReader(this.path))
+				{
+					XmlSerializer xml = new XmlSerializer(typeof(List<Astro>));
+					lista = (List<Astro>)xml.Deserialize(sr);
+				}*/
 			}
 			catch (Exception)
 			{
