@@ -64,4 +64,23 @@ namespace Entidades
 				HoraMostrada.Invoke(datos, new HoraEventArgs(hora));
 		*/
 	}
+
+	public class Formus
+	{
+		/*
+			private void SetearLabel(Label label, string texto)
+			{
+				if (label.InvokeRequired)
+				{
+					Delegate delegado = this.SetearLabel;
+					object[] args = { label, texto };
+					label.BeginInvoke(delegado, args);
+				}
+				else
+				{
+					label.Text = texto;
+				}
+			}
+		*/
+	}
 }

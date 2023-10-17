@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAstro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Astro xsi:type="Planeta">
+    <ID>412</ID>
+    <Nombre>sdcerf</Nombre>
+    <Masa>31</Masa>
+    <Diametro>42</Diametro>
+    <Satelites>4</Satelites>
+  </Astro>
+  <Astro xsi:type="Planeta">
+    <ID>4</ID>
+    <Nombre>czxfasd</Nombre>
+    <Masa>412</Masa>
+    <Diametro>152</Diametro>
+    <Satelites>15</Satelites>
+  </Astro>
+  <Astro xsi:type="Estrella">
+    <ID>41</ID>
+    <Nombre>Sol</Nombre>
+    <Masa>123</Masa>
+    <Diametro>4123</Diametro>
+    <TipoEspectro>5</TipoEspectro>
+  </Astro>
+</ArrayOfAstro>

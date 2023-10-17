@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+	//[XmlRoot("Planeta")]
 	public class Planeta : Astro
 	{
 		private int satelites;
@@ -18,7 +19,6 @@ namespace Entidades
 			this.satelites = satelites;
 		}
 
-		[JsonInclude]
 		public int Satelites
 		{ 
 			get { return this.satelites; }

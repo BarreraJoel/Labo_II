@@ -1,0 +1,29 @@
+{
+  "$type": "System.Collections.Generic.List`1[[Entidades.Astro, Entidades]], System.Private.CoreLib",
+  "$values": [
+    {
+      "$type": "Entidades.Planeta, Entidades",
+      "Satelites": 4,
+      "ID": 412,
+      "Nombre": "sdcerf",
+      "Masa": 31.0,
+      "Diametro": 42.0
+    },
+    {
+      "$type": "Entidades.Planeta, Entidades",
+      "Satelites": 15,
+      "ID": 4,
+      "Nombre": "czxfasd",
+      "Masa": 412.0,
+      "Diametro": 152.0
+    },
+    {
+      "$type": "Entidades.Estrella, Entidades",
+      "TipoEspectro": 5,
+      "ID": 41,
+      "Nombre": "Sol",
+      "Masa": 123.0,
+      "Diametro": 4123.0
+    }
+  ]
+}
